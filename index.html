@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A safe and well-structured HTML page for testing code review tools">
+    <title>Code Review Test Page</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Main content */
+        main {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #34495e;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code blocks */
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        /* Alert messages */
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            margin-top: 2rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+        }
+
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus indicators */
+        .btn:focus,
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: 2px solid #3498db;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Code Review Test Page</h1>
+            <p class="subtitle">A comprehensive example for testing code review tools</p>
+        </header>
+
+        <main>
+            <section class="section">
+                <h2>About This Page</h2>
+                <p>This HTML page is designed to be a comprehensive test case for code review tools. It includes various HTML elements, CSS styling, and JavaScript functionality to provide a realistic codebase for analysis.</p>
+                
+                <div class="alert alert-info">
+                    <strong>Note:</strong> This page follows modern web development best practices including semantic HTML, responsive design, accessibility features, and clean CSS organization.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Features Included</h2>
+                <ul>
+                    <li>Semantic HTML5 structure</li>
+                    <li>Responsive CSS Grid and Flexbox layouts</li>
+                    <li>Accessibility features (ARIA labels, focus indicators)</li>
+                    <li>Form validation and user interaction</li>
+                    <li>Modern CSS with custom properties</li>
+                    <li>Cross-browser compatibility</li>
+                    <li>Performance optimizations</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>Interactive Elements</h2>
+                <h3>Sample Form</h3>
+                <form id="testForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required aria-describedby="name-help">
+                        <small id="name-help" class="sr-only">Enter your full name</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select id="category" name="category">
+                            <option value="">Select a category</option>
+                            <option value="frontend">Frontend Development</option>
+                            <option value="backend">Backend Development</option>
+                            <option value="fullstack">Full Stack Development</option>
+                            <option value="devops">DevOps</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Enter your message here..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Submit</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </form>
+            </section>
+
+            <section class="section">
+                <h2>Code Examples</h2>
+                <h3>Sample JavaScript Function</h3>
+                <div class="code-block">
+function validateForm(formData) {
+    const errors = [];
+    
+    if (!formData.name || formData.name.trim().length < 2) {
+        errors.push('Name must be at least 2 characters long');
+    }
+    
+    if (!formData.email || !isValidEmail(formData.email)) {
+        errors.push('Please enter a valid email address');
+    }
+    
+    return {
+        isValid: errors.length === 0,
+        errors: errors
+    };
+}
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Test Actions</h2>
+                <button class="btn" onclick="showAlert()">Show Alert</button>
+                <button class="btn btn-secondary" onclick="toggleTheme()">Toggle Theme</button>
+                <button class="btn" onclick="validateForm()">Test Validation</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Code Review Test Page. Built with modern web standards.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Form validation function
+        function validateForm() {
+            const form = document.getElementById('testForm');
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            const errors = [];
+            
+            // Name validation
+            if (!data.name || data.name.trim().length < 2) {
+                errors.push('Name must be at least 2 characters long');
+            }
+            
+            // Email validation
+            if (!data.email || !isValidEmail(data.email)) {
+                errors.push('Please enter a valid email address');
+            }
+            
+            // Category validation
+            if (!data.category) {
+                errors.push('Please select a category');
+            }
+            
+            if (errors.length > 0) {
+                alert('Validation Errors:\n' + errors.join('\n'));
+                return false;
+            } else {
+                alert('Form is valid!');
+                return true;
+            }
+        }
+        
+        // Email validation helper
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // Show alert function
+        function showAlert() {
+            alert('This is a test alert for code review purposes!');
+        }
+        
+        // Theme toggle function
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            alert(`Theme toggled to: ${isDark ? 'Dark' : 'Light'}`);
+        }
+        
+        // Form submission handler
+        document.getElementById('testForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateForm()) {
+                // In a real application, you would submit the form here
+                console.log('Form submitted successfully');
+            }
+        });
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Code review test page loaded successfully');
+            
+            // Add some interactive enhancements
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    if (this.value.trim() !== '') {
+                        this.classList.add('has-value');
+                    } else {
+                        this.classList.remove('has-value');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
