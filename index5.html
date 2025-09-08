@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problematic Code Example</title>
+    <style>
+        body { font-family: Arial; }
+        .container { width: 100%; }
+        .btn { background: red; color: white; }
+        div { margin: 10px; }
+        p { font-size: 14px; }
+        .header { background: blue; }
+        .content { padding: 20px; }
+        .footer { background: gray; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to Our Site</h1>
+        </div>
+        
+        <div class="content">
+            <p>This is some content</p>
+            <button onclick="alert('Hello!')">Click Me</button>
+            <button onclick="document.getElementById('secret').innerHTML='Password: 12345'">Show Secret</button>
+            <div id="secret"></div>
+            
+            <form>
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" value="Login">
+            </form>
+            
+            <script>
+                function validateForm() {
+                    var username = document.getElementsByName('username')[0].value;
+                    var password = document.getElementsByName('password')[0].value;
+                    
+                    if (username == 'admin' && password == 'admin123') {
+                        alert('Login successful!');
+                        return true;
+                    } else {
+                        alert('Invalid credentials!');
+                        return false;
+                    }
+                }
+                
+                function loadUserData() {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', '/api/users', true);
+                    xhr.send();
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            document.getElementById('userData').innerHTML = xhr.responseText;
+                        }
+                    };
+                }
+                
+                function deleteUser(userId) {
+                    if (confirm('Are you sure?')) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('DELETE', '/api/users/' + userId, true);
+                        xhr.send();
+                    }
+                }
+                
+                // Global variables
+                var userData = null;
+                var isLoggedIn = false;
+                var sessionTimeout = 30000;
+                
+                // Inline event handlers
+                document.getElementById('loginBtn').onclick = function() {
+                    validateForm();
+                };
+                
+                // Unescaped HTML
+                function displayMessage(msg) {
+                    document.getElementById('message').innerHTML = msg;
+                }
+                
+                // SQL injection vulnerability simulation
+                function searchUsers(query) {
+                    var sql = "SELECT * FROM users WHERE name LIKE '%" + query + "%'";
+                    // This would be sent to server
+                    console.log(sql);
+                }
+                
+                // XSS vulnerability
+                function showUserProfile(username) {
+                    var profile = "<h3>Profile: " + username + "</h3>";
+                    document.getElementById('profile').innerHTML = profile;
+                }
+                
+                // Memory leak potential
+                function createElements() {
+                    for (var i = 0; i < 1000; i++) {
+                        var div = document.createElement('div');
+                        div.onclick = function() {
+                            alert('Clicked: ' + i);
+                        };
+                        document.body.appendChild(div);
+                    }
+                }
+                
+                // Race condition
+                function updateCounter() {
+                    var counter = document.getElementById('counter').innerHTML;
+                    counter = parseInt(counter) + 1;
+                    document.getElementById('counter').innerHTML = counter;
+                }
+                
+                // No error handling
+                function loadData() {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', '/api/data', true);
+                    xhr.send();
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState == 4) {
+                            var data = JSON.parse(xhr.responseText);
+                            processData(data);
+                        }
+                    };
+                }
+                
+                function processData(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        console.log(data[i].name);
+                    }
+                }
+            </script>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2024 Company Name</p>
+        </div>
+    </div>
+    
+    <div id="userData"></div>
+    <div id="message"></div>
+    <div id="profile"></div>
+    <div id="counter">0</div>
+    <button id="loginBtn">Login</button>
+    <button onclick="loadUserData()">Load Data</button>
+    <button onclick="createElements()">Create Elements</button>
+    <button onclick="updateCounter()">Update Counter</button>
+</body>
+</html>
